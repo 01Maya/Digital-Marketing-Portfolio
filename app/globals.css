@@ -1,0 +1,91 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+:root {
+  --background: #f8f7f4;
+  --foreground: #14181f;
+  --card: #ffffff;
+  --card-foreground: #14181f;
+  --popover: #ffffff;
+  --popover-foreground: #14181f;
+  --primary: #3f3fd9;
+  --primary-foreground: #ffffff;
+  --secondary: #eeedf9;
+  --secondary-foreground: #14181f;
+  --muted: #efeee9;
+  --muted-foreground: #5f646d;
+  --accent: #e7e5fa;
+  --accent-foreground: #14181f;
+  --destructive: #d93b3b;
+  --border: #e3e1da;
+  --input: #e3e1da;
+  --ring: #3f3fd9;
+  --radius: 0.75rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --font-sans: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-instrument), Georgia, serif;
+}
+
+@layer base {
+  * { border-color: var(--border); }
+  html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+  body { background: var(--background); color: var(--foreground); font-family: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif; line-height: 1.65; overflow-x: clip; -webkit-font-smoothing: antialiased; }
+  h1, h2, h3 { font-family: var(--font-serif); font-weight: 400; }
+  ::selection { background: var(--primary); color: #fff; }
+  :focus-visible { outline: 2px solid var(--ring); outline-offset: 4px; }
+}
+
+/* ---------- SVG illustration animations (used by components/art.tsx) ---------- */
+.tz { transform-box: fill-box; transform-origin: 0 50%; }
+.k1 { animation: ty 6s ease-in-out infinite; }
+.cl { animation: cl 6s cubic-bezier(.3,.9,.2,1) infinite; }
+.dn { animation: dn 6s cubic-bezier(.3,.9,.2,1) infinite; }
+.dr { stroke-dasharray: 1; stroke-dashoffset: 1; animation: dw 1.6s .3s cubic-bezier(.2,.8,.2,1) forwards; }
+.dw2 { stroke-dasharray: 1; animation: dw2 6s ease-in-out infinite; }
+.pl2 { transform-box: fill-box; transform-origin: center; animation: pl2 3s ease-out infinite; }
+.bu { transform-box: fill-box; transform-origin: 50% 100%; animation: bu 4s ease-in-out infinite; }
+.fl { transform-box: fill-box; transform-origin: 50% 0; animation: fl 5s ease-in-out infinite; }
+.lt { animation: lt 5s ease-in-out infinite; }
+.pk { animation: pk 3.5s ease-in-out infinite alternate; }
+.cu { animation: cu 4s ease-in-out infinite; }
+.dd { stroke-dasharray: 72 100; animation: dd 5s ease-in-out infinite; }
+@keyframes ty { 0% { transform: scaleX(0) } 30%, 90% { transform: scaleX(1) } 100% { transform: scaleX(0) } }
+@keyframes cl { 0%, 18% { transform: translateY(108px) } 50%, 90% { transform: none } 100% { transform: translateY(108px) } }
+@keyframes dn { 0%, 18% { transform: translateY(-54px) } 50%, 90% { transform: none } 100% { transform: translateY(-54px) } }
+@keyframes dw { to { stroke-dashoffset: 0 } }
+@keyframes dw2 { 0% { stroke-dashoffset: 1 } 50%, 90% { stroke-dashoffset: 0 } 100% { stroke-dashoffset: 1 } }
+@keyframes pl2 { 0% { transform: scale(.6); opacity: .9 } 100% { transform: scale(1.25); opacity: 0 } }
+@keyframes bu { 0% { transform: scaleY(.05) } 35%, 85% { transform: scaleY(1) } 100% { transform: scaleY(.05) } }
+@keyframes fl { 0%, 10% { transform: scaleY(1) } 30%, 80% { transform: scaleY(-1) } 100% { transform: scaleY(1) } }
+@keyframes lt { 0%, 15% { transform: translateY(40px) } 40%, 80% { transform: translateY(-30px) } 100% { transform: translateY(40px) } }
+@keyframes pk { from { transform: translateY(0) } to { transform: translateY(160px) } }
+@keyframes cu { 0% { transform: translate(90px, 70px) } 30%, 90% { transform: translate(0, 0) } 100% { transform: translate(90px, 70px) } }
+@keyframes dd { 0% { stroke-dasharray: 0 100 } 45%, 90% { stroke-dasharray: 72 100 } 100% { stroke-dasharray: 0 100 } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; scroll-behavior: auto !important; }
+  .dr { stroke-dashoffset: 0; }
+}
