@@ -35,12 +35,18 @@ export function Creative() {
 
   return (
     <section id="creative" className="pb-20 md:pb-24">
-    <div className="mx-auto max-w-[1080px] px-5 pt-3 md:px-8 md:pt-0">
-      <SectionHeading
-        label="Creative"
-        title="A sample of the creative I direct."
-      />
-    </div>
+<div className="mx-auto max-w-[1080px] px-5 pt-2 pb-6 md:px-8 md:pt-0 md:pb-8">
+  <p className="flex items-center gap-3 text-xs uppercase tracking-[0.16em] text-muted-foreground">
+    <span className="inline-block size-2 rounded-full bg-[#FF6B4A]" />
+    Creative
+  </p>
+
+  <div className="mb-5 mt-5 h-px w-[70px] bg-foreground md:mb-6 md:mt-6" />
+
+  <h2 className="overflow-visible text-3xl leading-[1.3] tracking-tight md:text-4xl">
+    A sample of the creative I direct.
+  </h2>
+</div>
 
       {/* Draggable horizontal creative gallery */}
       <div
